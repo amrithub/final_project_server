@@ -1,14 +1,14 @@
 ### GET /posts
-GET http://localhost:3009/posts HTTP/1.1
+GET http://localhost:3000/posts HTTP/1.1
 
 ### GET /posts/1
-GET http://localhost:3009/posts/1 HTTP/1.1
+GET http://localhost:3000/posts/1 HTTP/1.1
 
 ### with invalid id
-GET http://localhost:3009/posts/9 HTTP/1.1
+GET http://localhost:3000/posts/9 HTTP/1.1
 
 ### POST /posts
-POST http://localhost:3009/posts HTTP/1.1
+POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
@@ -19,7 +19,7 @@ content-type: application/json
 }
 
 ### POST /posts (with no category)
-POST http://localhost:3009/posts HTTP/1.1
+POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
@@ -29,10 +29,11 @@ content-type: application/json
 }
 
 ### DELETE /posts/id 
-DELETE http://localhost:3009/posts/5 HTTP/1.1
+
+DELETE http://localhost:3000/posts/5f08379bef5f7d204dc7946c HTTP/1.1
 
 ### PUT /posts/1
-PUT http://localhost:3009/posts/1 HTTP/1.1
+PUT http://localhost:3000/posts/5f08379bef5f7d204dc7946c HTTP/1.1
 content-type: application/json
 
 {

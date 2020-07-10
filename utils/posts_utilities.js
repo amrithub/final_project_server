@@ -9,100 +9,43 @@ const getAllPosts = function (req) {
   return Post.find()
 };
 
-function getPostById(req) {
-	let post = blogPosts[req.params.id]
-	// if no post, set req.error 
-	if(post) return post
-	req.error = "Post not found"
+const getPostById = function(req) {
+	return Post.findById(req.params.id)
 }
 
-function addPost(req) {
-	try {
-		const {title, username, content, category} = req.body
-		const date = Date.now()
-		const newPost = {
-			title: title,
-			username: username,
-			content: content,
-			create_date: date,
-			modified_date: date,
-			category: category || ""
-		}
-		// Add to blogPosts (in memory)
-		blogPosts[getNextId()] = newPost
-		// Save updated blogPosts to the file
-		fs.writeFileSync(`./${dataFile}`, JSON.stringify(blogPosts))
-		return newPost
-	}
-	catch(error) {
-		req.error = error
-	}
-}
+const addPost = function (req) {
+    let date = Date.now();
+    // Set dates for this new post
+    req.body.create_date = date;
+    req.body.modified_date = date;
+    return new Post(req.body);
+};
 
 // deletePost
-function deletePost(req) {
-	const id = req.params.id
-
-	try {
-		if (blogPosts[id]){
-			delete blogPosts[id]
-			// update the file
-			// Save updated blogPosts to the file
-			fs.writeFileSync(`./${dataFile}`, JSON.stringify(blogPosts))
-		} 
-		else {
-			req.status = 400
-			req.error = "Post not found"
-		}
-		return blogPosts
-	}
-	catch(error) {
-		req.status = 500
-		req.error = error
-	}
+// delete post
+// returns a query
+const deletePost = function(id) {
+	return Post.findByIdAndRemove(id)
 }
-
-function updatePost(req) {
-	try {
-		let id = req.params.id
-		let existingPost = blogPosts[id]
-		if(existingPost) {
-			const {title, username, content, category} = req.body
-			const date = Date.now()
-			const updatedPost = {
-				title: title,
-				username: username,
-				content: content,
-				create_date: existingPost.create_date,
-				modified_date: date,
-				category: category || existingPost.category
-			}
-			blogPosts[id] = updatedPost
-			// update the file
-			// Save updated blogPosts to the file
-			fs.writeFileSync(`./${dataFile}`, JSON.stringify(blogPosts))
-			return updatedPost
-		}
-		else {
-			req.status = 400
-			req.error = "Post not found"
-		}
-	}
-	catch(error) {
-		req.status = 500
-		req.error = error
-	}
-}
+// update post
+// returns a query
+const updatePost = function (req) {
+    req.body.modified_date = Date.now();
+    // use new:true to return the updated post rather than the original post when the query is executed
+    return Post.findByIdAndUpdate(req.params.id, req.body, {
+        new: true
+    });
+};
 
 // helper for testing
 function loadData(file) {
 	dataFile = file
-	blogPosts = JSON.parse(fs.readFileSync(file, 'utf8'))
+	dishPosts = JSON.parse(fs.readFileSync(file, 'utf8'))
 }
 
 // helper function to generate unique id
 function getNextId() {
-	let ids = Object.keys(blogPosts).sort()
+	let ids = Object.keys(dishPosts).sort()
 	let lastId = (ids.length > 0) ? ids[ids.length-1] : 0
 	return parseInt(lastId) + 1
 }

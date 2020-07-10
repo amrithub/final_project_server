@@ -107,3 +107,6 @@ This application is being designed for online booking, payment and delivery of d
 
 
 
+### **Architecture of the application**
+
+![alt app actect](./pics/arch.png?raw=true)
