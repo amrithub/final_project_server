@@ -33,7 +33,7 @@ content-type: application/json
 DELETE http://localhost:3000/posts/5f08379bef5f7d204dc7946c HTTP/1.1
 
 ### PUT /posts/1
-PUT http://localhost:3000/posts/5f08379bef5f7d204dc7946c HTTP/1.1
+PUT http://localhost:3000/posts/5f083799ef5f7d204dc7946a HTTP/1.1
 content-type: application/json
 
 {
@@ -51,4 +51,25 @@ content-type: application/json
     "title": "updated post",
     "username": "tester",
 	"content": "this post has been updated"
+}
+
+### POST /auth/login 
+POST http://localhost:3000/auth/login
+content-type: application/json
+
+{
+	"username": "amritk",
+	"password": "abc123"
+}
+### GET /auth/logout
+GET http://localhost:3000/auth/logout
+
+### POST /auth/register 
+POST http://localhost:3000/auth/register
+content-type: application/json
+
+{
+	"username": "amritk",
+	"email": "auto-tester1@abc.com",
+	"password": "abc123"
 }
