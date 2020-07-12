@@ -4,7 +4,7 @@ const {
     addPost,
     deletePost,
     updatePost
-} = require('../utils/posts_utilities');
+} = require('../utils/posts_utils');
 
 
 const getPosts = function (req, res) {

@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const expect = require('expect');
-const utilities = require('../utils/posts_utilities');
+const utilities = require('../utils/posts_utils');
 const Post = require('../models/post');
 // set up connection for test database
 const dbConn = "mongodb://localhost/online_dish_app"
