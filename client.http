@@ -2,7 +2,7 @@
 GET http://localhost:3000/posts HTTP/1.1
 
 ### GET /posts/1
-GET http://localhost:3000/posts/1 HTTP/1.1
+GET http://localhost:3000/posts/5f0983ec7b7e6d5b648e41c6 HTTP/1.1
 
 ### with invalid id
 GET http://localhost:3000/posts/9 HTTP/1.1
@@ -12,8 +12,8 @@ POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
-    "title": "a new post",
-    "username": "tester",
+    "title": "All Good Job",
+    "username": "amrits",
 	"category": "code",
 	"content": "this is a new post about code"
 }
@@ -23,33 +23,33 @@ POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
-    "title": "a new post",
+    "title": "GOOOOOOOOOOOOdJOB",
     "username": "tester",
 	"content": "this is a new post about code"
 }
 
 ### DELETE /posts/id 
 
-DELETE http://localhost:3000/posts/5f08379bef5f7d204dc7946c HTTP/1.1
+DELETE http://localhost:3000/posts/5f098f2529b8d15f1aa55333 HTTP/1.1
 
 ### PUT /posts/1
-PUT http://localhost:3000/posts/5f083799ef5f7d204dc7946a HTTP/1.1
+PUT http://localhost:3000/posts/5f09888dd6a1365e272b930a HTTP/1.1
 content-type: application/json
 
 {
     "title": "updated post",
-    "username": "tester",
+    "username": "amritk",
 	"category": "general",
 	"content": "this post has been updated"
 }
 
 ### PUT /posts/1 (no category)
-PUT http://localhost:3009/posts/1 HTTP/1.1
+PUT http://localhost:3000/posts/5f0861372388a52d7b02b935 HTTP/1.1
 content-type: application/json
 
 {
     "title": "updated post",
-    "username": "tester",
+    "username": "amritk",
 	"content": "this post has been updated"
 }
 
@@ -58,7 +58,7 @@ POST http://localhost:3000/auth/login
 content-type: application/json
 
 {
-	"username": "amritk",
+	"username": "amrits",
 	"password": "abc123"
 }
 ### GET /auth/logout
@@ -69,7 +69,7 @@ POST http://localhost:3000/auth/register
 content-type: application/json
 
 {
-	"username": "amritk",
+	"username": "amrits",
 	"email": "auto-tester1@abc.com",
 	"password": "abc123"
 }
