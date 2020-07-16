@@ -70,6 +70,26 @@ const removePost = function (req, res) {
     }
 };
 
+// const changePost = function (req, res) {
+//     // Check for error from middleware
+//     if (req.error) {
+//         res.status(req.error.status);
+//         res.send(req.error.message);
+//     } else {
+//         // execute the query from updatePost
+//         updatePost(req).exec((err, post) => {
+//             if (err) {
+//                 res.status(500);
+//                 return res.json({
+//                     error: err.message
+//                 });
+//             }
+//             res.status(200);
+//             res.send(post);
+//         });
+//     }
+// };
+
 const changePost = function (req, res) {
     // Check for error from middleware
     if (req.error) {
