@@ -2,18 +2,18 @@
 GET http://localhost:3000/posts HTTP/1.1
 
 ### GET /posts/1
-GET http://localhost:3000/posts/5f0983ec7b7e6d5b648e41c6 HTTP/1.1
+GET http://localhost:3000/posts/5f0941863017bb6744488529 HTTP/1.1
 
 ### with invalid id
-GET http://localhost:3000/posts/9 HTTP/1.1
+GET http://localhost:3000/posts/5f0e5bbcb9367a2cf1186552 HTTP/1.1
 
 ### POST /posts
 POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
-    "title": "All Good Job",
-    "username": "amrits",
+    "title": "a new post",
+    
 	"category": "code",
 	"content": "this is a new post about code"
 }
@@ -23,33 +23,33 @@ POST http://localhost:3000/posts HTTP/1.1
 content-type: application/json
 
 {
-    "title": "GOOOOOOOOOOOOdJOB",
-    "username": "tester",
-	"content": "this is a new post about code"
+    "title": "a new ppppost",
+    "username": "kck",
+	"content": "this is afff new post about code"
 }
 
 ### DELETE /posts/id 
 
-DELETE http://localhost:3000/posts/5f098f2529b8d15f1aa55333 HTTP/1.1
+DELETE http://localhost:3000/posts/5f104cb2664bc00a02dc0479 HTTP/1.1
 
 ### PUT /posts/1
-PUT http://localhost:3000/posts/5f09888dd6a1365e272b930a HTTP/1.1
+PUT http://localhost:3000/posts/5f104cb2664bc00a02dc0479 HTTP/1.1
 content-type: application/json
 
 {
     "title": "updated post",
-    "username": "amritk",
+    "username": "aaa",
 	"category": "general",
 	"content": "this post has been updated"
 }
 
 ### PUT /posts/1 (no category)
-PUT http://localhost:3000/posts/5f0861372388a52d7b02b935 HTTP/1.1
+PUT http://localhost:3000/posts/5f10475c664bc00a02dc0476 HTTP/1.1
 content-type: application/json
 
 {
     "title": "updated post",
-    "username": "amritk",
+    "username": "tester",
 	"content": "this post has been updated"
 }
 
@@ -58,7 +58,7 @@ POST http://localhost:3000/auth/login
 content-type: application/json
 
 {
-	"username": "amrits",
+	"username": "kkk",
 	"password": "abc123"
 }
 ### GET /auth/logout
@@ -69,7 +69,8 @@ POST http://localhost:3000/auth/register
 content-type: application/json
 
 {
-	"username": "amrits",
-	"email": "auto-tester1@abc.com",
-	"password": "abc123"
+	"username": "kkk",
+	"email": "auto-tester1@abc.com",	
+	"password": "abc123",
+	"role": "admin"
 }
