@@ -37,8 +37,7 @@ const getPost = function (req, res) {
 
 const makePost = function (req, res) {
     // add the username from req.user
-   // req.body.username = req.user.username;
-   if (req.user.role === 'admin'){
+    req.body.username = req.user.username;
     // save the Post instance from addPost
     addPost(req).save((err, post) => {
         if (err) {
@@ -49,11 +48,10 @@ const makePost = function (req, res) {
         }
         res.status(201);
         res.send(post);
-    });}
+    });
 };
 
 const removePost = function (req, res) {
-    if (req.user.role === 'admin'){
     // Check for error from middleware
     if (req.error) {
         res.status(req.error.status);
@@ -68,7 +66,7 @@ const removePost = function (req, res) {
                 });
             }
             res.sendStatus(204);
-        });}
+        });
     }
 };
 
@@ -93,7 +91,6 @@ const removePost = function (req, res) {
 // };
 
 const changePost = function (req, res) {
-    if (req.user.role === 'admin'){
     // Check for error from middleware
     if (req.error) {
         res.status(req.error.status);
@@ -109,7 +106,7 @@ const changePost = function (req, res) {
             }
             res.status(200);
             res.send(post);
-        });}
+        });
     }
 };
 
